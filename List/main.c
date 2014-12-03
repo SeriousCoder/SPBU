@@ -69,6 +69,7 @@ list* remove_elem (int a, list* beginList)
             {
                 prev -> next_elem = next -> next_elem;
                 free(next);
+                break;
             }
             else
             {
@@ -78,6 +79,26 @@ list* remove_elem (int a, list* beginList)
         }
     }
     return beginList;
+}
+
+void clearList(list* listBegin)
+{
+    list* next = listBegin -> next_elem;
+    int bool = 1;
+    
+    while (bool)
+    {
+        free(listBegin);
+        if (next == NULL)
+        {
+            bool = 0;
+        }
+        else
+        {
+            listBegin = next;
+            next = listBegin -> next_elem;
+        }
+    }
 }
 
 int main() 
@@ -115,8 +136,21 @@ int main()
                 beginList = remove_elem(inputInt, beginList);
                 break;
             case 'p':
-                showList(beginList);
+                if (beginList != NULL)
+                {
+                    showList(beginList);
+                }
+                else
+                {
+                    printf("\n");
+                }
                 inputComm = getchar();
+                break;
+            default:
+                if (beginList != NULL)
+                {
+                    clearList(beginList);   
+                }
                 break;
         }
     }
