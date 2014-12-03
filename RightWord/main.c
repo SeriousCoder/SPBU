@@ -16,5 +16,5 @@ int main(void)
 
 int RightWord(int x ,int n)
 {
-	return !(((~x & (x >> 0x1F)) + (x & ~(x >> 0x1F))) >> (n + ~0));
+	return !((x >> (n - 1)) + (!!(x >> (n -1))));
 }
