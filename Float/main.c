@@ -1,3 +1,9 @@
+/*
+    Author: Tarasenko Nikita
+    Problem: "Float"
+ 
+ */
+
 #include <stdio.h>
 
 int bitFloatToInt1(float fnum) 
