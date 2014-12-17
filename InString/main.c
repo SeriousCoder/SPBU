@@ -1,3 +1,9 @@
+/*
+    Author: Tarasenko Nikita
+    Problem: "Search substring"
+ 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -17,12 +23,12 @@ int main()
     printf("Enter S2: ");
     scanf("%s", s2);
     
-    while (s1[i] != '\0')
+    while (s1[i])
     {
         if (s1[i] == s2[0])
         {
             int j = 1, bool = 1;
-            while(s2[j] != '\0' && s1[i + j] != '\0' && bool)
+            while(s2[j] && s1[i + j] && bool)
             {
                 if (s2[j] != s1[i + j])
                 {
@@ -33,11 +39,11 @@ int main()
                    j++; 
                 }
             }
-            if (bool == 1 && s2[j] == '\0')
+            if (bool && !s2[j])
             {
                 num++;
             }
-            if (s1[i + j] == '\0')
+            if (!s1[i + j])
             {
                 break;
             }
@@ -51,6 +57,9 @@ int main()
     }
 
     printf("Number of entries: %d", num);
+    
+    free(s1);
+    free(s2);
     
     return 0;
 }
