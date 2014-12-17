@@ -1,3 +1,9 @@
+/*
+    Author: Tarasenko Nikita
+    Problem: "List"
+ 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -34,6 +40,10 @@ int checking_an_idiot ()
 list* add_new_elem (int a, list* oldFirst)
 {
     list* new_elem = (list*)malloc(sizeof(list));
+    if(!new_elem)
+    {
+        printf("Not enough memory!");
+    }
     new_elem -> value = a;
     new_elem -> next_elem = oldFirst;
     return new_elem;
