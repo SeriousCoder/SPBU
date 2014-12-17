@@ -1,6 +1,13 @@
+/*
+    Author: Tarasenko Nikita
+    Problem: "StackCalc", main.c
+ 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "List.h"
+
 
 StackList* Add(StackList* top, IntList* value);
 
@@ -34,6 +41,11 @@ int main()
                     stack = Add(stack, Inc(a, b));
                     break;
             }
+            
+            if (!stack)
+            {
+                return 0;
+            }
         }
         else if(ch == '-')
         {
@@ -52,14 +64,22 @@ int main()
             {
                 stack = Add(stack, Read(ch, 1));
             }
+            
+            if (!stack)
+            {
+                return 0;
+            }
         }
         else if (ch >= 48 && ch < 58)
         {
             stack = Add(stack, Read(ch, 0));
+            
+            if (!stack)
+            {
+                return 0;
+            }
         }
-        
-        
-        
+
         ch = getchar();
     }
     
@@ -73,6 +93,12 @@ int main()
 StackList* Add(StackList* top, IntList* value)
 {
     StackList *new  = (StackList*)malloc(sizeof(StackList));
+    
+    if(!new || !value)
+    {
+        printf("Not enough memory!");
+        exit (NOT_ENOUGH_MEMORY);
+    }
     
     new -> next = top;
     new -> integer = value;
@@ -88,6 +114,3 @@ StackList* Remote(StackList* top)
     
     return stack;
 }
-
-
-

@@ -17,6 +17,12 @@ int main()
     s1 = (char*)malloc(sizeof(char) * 1000);
     s2 = (char*)malloc(sizeof(char) * 1000);
     
+    if (!s1 || !s2)
+    {
+        printf("Not enough memory!");
+        exit (NOT_ENOUGH_MEMORY);
+    }
+    
     printf("Enter S1: ");
     scanf("%s", s1);
     

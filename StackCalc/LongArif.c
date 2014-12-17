@@ -1,3 +1,9 @@
+/*
+    Author: Tarasenko Nikita
+    Problem: "StackCalc", LongArif.c
+ 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "List.h"
@@ -24,6 +30,12 @@ IntList* Inc(IntList* a, IntList* b)
     {
         IntList *c;
         c = (IntList*)malloc(sizeof(IntList));
+        
+        if(!c)
+        {
+            printf("Not enough memory!");
+            exit (NOT_ENOUGH_MEMORY);
+        }
         
         c -> next = NULL;
         c -> sign = a -> sign;
@@ -61,6 +73,12 @@ IntList* Inc(IntList* a, IntList* b)
             if (!c -> next && (a || b))
             {
                 IntList *newRank = (IntList*)malloc(sizeof(IntList));
+                
+                if(!newRank)
+                {
+                   printf("Not enough memory!");
+                   exit (NOT_ENOUGH_MEMORY);
+                }
                 
                 newRank -> next = NULL;
                 newRank -> sign = c -> sign;
@@ -143,6 +161,12 @@ IntList* Read(char ch, int sign)
 {
     IntList *newInt = (IntList*)malloc(sizeof(IntList));
     
+    if(!newInt)
+    {
+        printf("Not enough memory!");
+        exit (NOT_ENOUGH_MEMORY);
+    }
+    
     newInt -> next = NULL;
     newInt -> sign = sign;
     newInt -> length = 1;
@@ -174,6 +198,12 @@ void addIntList10(IntList* list, int value)
         {
             IntList *newInt = (IntList*)malloc(sizeof(IntList));
             
+            if(!newInt)
+            {
+                printf("Not enough memory!");
+                exit (NOT_ENOUGH_MEMORY);
+            }
+            
             newInt -> next = NULL;
             newInt -> sign = list -> sign;
             list -> next = newInt;
@@ -196,6 +226,12 @@ void addIntList(IntList* list, int value)
         if (!list -> next)
         {
             IntList *newInt = (IntList*)malloc(sizeof(IntList));
+            
+            if(!newInt)
+            {
+                printf("Not enough memory!");
+                exit (NOT_ENOUGH_MEMORY);
+            }
             
             newInt -> next = NULL;
             newInt -> sign = list -> sign;

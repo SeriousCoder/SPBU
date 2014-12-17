@@ -43,6 +43,7 @@ list* add_new_elem (int a, list* oldFirst)
     if(!new_elem)
     {
         printf("Not enough memory!");
+        exit (NOT_ENOUGH_MEMORY);
     }
     new_elem -> value = a;
     new_elem -> next_elem = oldFirst;
@@ -133,6 +134,10 @@ int main()
                     inputComm = getchar();
                 }
                 beginList = add_new_elem(inputInt, beginList);
+                if (!beginList)
+                {
+                    return 0;
+                }
                 break;
             case 'r':
                 inputInt = 0;

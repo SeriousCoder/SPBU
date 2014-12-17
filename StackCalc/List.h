@@ -1,9 +1,17 @@
+/*
+    Author: Tarasenko Nikita
+    Problem: "StackCalc", List.h
+ 
+ */
+
 #ifndef LIST_H
 #define	LIST_H
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
+    
+#define NOT_ENOUGH_MEMORY 1
 
 typedef struct
 {
