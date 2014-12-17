@@ -28,7 +28,7 @@ int main()
                     stack = Add(stack, Mult(a, b));
                     break;
                 case '/':
-                    stack = Add(stack, Div(a, b));
+                    stack = Add(stack, Div(b, a));
                     break;
                 case '+':
                     stack = Add(stack, Inc(a, b));
@@ -46,7 +46,7 @@ int main()
                 IntList* b = stack -> integer;
                 stack = Remote(stack);
             
-                stack = Add(stack, Dec(a, b));
+                stack = Add(stack, Dec(b, a));
             }
             else if (ch >= 48 && ch < 58)
             {
@@ -57,6 +57,8 @@ int main()
         {
             stack = Add(stack, Read(ch, 0));
         }
+        
+        
         
         ch = getchar();
     }

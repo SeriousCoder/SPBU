@@ -9,6 +9,7 @@ typedef struct
 {
     int value;
     int sign; 
+    int length;
     void *next;
 }IntList;
 
@@ -29,6 +30,12 @@ IntList* Div(IntList* a, IntList* b);
 IntList* Read(char ch, int sign);
 
 void ShowInt(IntList* value, int sign);
+
+void EditSign(IntList* value);
+
+void EditLength(IntList* prev, int leng);
+
+int Compare(IntList* a, IntList* b);
 
 
 #ifdef	__cplusplus
