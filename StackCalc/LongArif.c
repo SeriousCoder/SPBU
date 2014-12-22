@@ -40,6 +40,7 @@ IntList* Inc(IntList* a, IntList* b)
         c -> next = NULL;
         c -> sign = a -> sign;
         c -> value = 0;
+        c -> length = 1;
         
         result = c;
         
@@ -83,6 +84,8 @@ IntList* Inc(IntList* a, IntList* b)
                 newRank -> next = NULL;
                 newRank -> sign = c -> sign;
                 newRank -> value = 0;
+                result -> length++;
+                newRank -> length = result -> length;
                 
                 c -> next = newRank;
             }
@@ -149,7 +152,73 @@ IntList* Dec(IntList* a, IntList* b)
 
 IntList* Mult(IntList* a, IntList* b)
 {
+    IntList *result, *c, *del, *bm, *now;
+    int sign = 0;
     
+    if (a -> sign - b -> sign)
+    {
+            sign++;
+    }
+    
+    c = (IntList*)malloc(sizeof(IntList));
+    
+    c -> next = NULL;
+    c -> sign = sign;
+    c -> value = 0;
+    c -> length = 1;
+    
+    result = c;
+    now = c;
+    bm = b;
+    
+    while (a)
+    {
+        while(b)
+        {
+            addIntList(c, a -> value * b -> value);
+            b = b -> next;
+            
+            if (!c -> next && b)
+            {
+                IntList *newRank = (IntList*)malloc(sizeof(IntList));
+                
+                if(!newRank)
+                {
+                   printf("Not enough memory!");
+                   exit (NOT_ENOUGH_MEMORY);
+                }
+                
+                newRank -> next = NULL;
+                newRank -> sign = c -> sign;
+                newRank -> value = 0;
+                result -> length++;
+                newRank -> length = result -> length;
+                
+                c -> next = newRank;
+            }
+            
+            c = c -> next;
+        }
+        
+        b = bm;
+        
+        now = now -> next;
+        c = now;
+        
+        del = a -> next;
+        free(a);
+        a = del;
+    }
+    
+    
+    while (bm)
+    {
+        del = bm -> next;
+        free(bm);
+        bm = del;
+    }
+    
+    return result;
 }
 
 IntList* Div(IntList* a, IntList* b)
@@ -208,6 +277,8 @@ void addIntList10(IntList* list, int value)
             newInt -> sign = list -> sign;
             list -> next = newInt;
             newInt -> value = 0;
+            list -> length++;
+            newInt -> length = list -> length;
         }
         
         addIntList10(list -> next, value);
@@ -237,6 +308,8 @@ void addIntList(IntList* list, int value)
             newInt -> sign = list -> sign;
             list -> next = newInt;
             newInt -> value = 0;
+            list -> length++;
+            newInt -> length = list -> length;
         }
         
         addIntList(list -> next, value);

@@ -83,9 +83,9 @@ int main()
         ch = getchar();
     }
     
-    ShowInt(stack -> integer, stack -> integer->sign);
+    ShowInt(stack -> integer, stack -> integer -> sign);
     
-    free(stack);
+    Remote(stack);
 
     return 0;
 }
@@ -109,6 +109,14 @@ StackList* Add(StackList* top, IntList* value)
 StackList* Remote(StackList* top)
 {
     StackList *stack = top -> next;
+    
+    IntList* next = top -> integer;
+    
+    if (!next)
+    {
+       next = top -> integer -> next;
+       free(top -> integer);
+    }
     
     free(top);
     
