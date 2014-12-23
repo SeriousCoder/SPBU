@@ -45,6 +45,10 @@ void EditLength(IntList* prev, int leng);
 
 int Compare(IntList* a, IntList* b);
 
+void addIntList10(IntList* list, int value);
+
+void addIntList(IntList* list, int value);
+
 
 #ifdef	__cplusplus
 }

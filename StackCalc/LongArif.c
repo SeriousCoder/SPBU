@@ -120,7 +120,7 @@ IntList* Dec(IntList* a, IntList* b)
     }
     else
     {
-        if (a -> length < b -> length || Compare(a, b))
+        if (a -> length < b -> length || (a -> length == b -> length)?Compare(a, b):0)
         {
             IntList* foo;
             
@@ -160,14 +160,14 @@ IntList* Mult(IntList* a, IntList* b)
             sign++;
     }
     
-    c = (IntList*)malloc(sizeof(IntList));
+    result = (IntList*)malloc(sizeof(IntList));
     
-    c -> next = NULL;
-    c -> sign = sign;
-    c -> value = 0;
-    c -> length = 1;
+    result -> next = NULL;
+    result -> sign = sign;
+    result -> value = 0;
+    result -> length = 1;
     
-    result = c;
+    c = result;
     now = c;
     bm = b;
     
@@ -176,6 +176,7 @@ IntList* Mult(IntList* a, IntList* b)
         while(b)
         {
             addIntList(c, a -> value * b -> value);
+            result -> length = c -> length;
             b = b -> next;
             
             if (!c -> next && b)
@@ -223,7 +224,119 @@ IntList* Mult(IntList* a, IntList* b)
 
 IntList* Div(IntList* a, IntList* b)
 {
+    IntList *result, *del, *bm, *delm;
+    int sign = 0;
+    int len, foo;
     
+    if (a -> sign - b -> sign)
+    {
+            sign++;
+    }
+    
+    bm = b;
+    
+    IntList *c;
+    c = (IntList*)malloc(sizeof(IntList));
+    
+    c -> next = NULL;
+    c -> sign = sign;
+    c -> value = 0;
+    c -> length = 1;
+    
+    foo = a -> length - b -> length + 1;
+
+    
+    while((a -> length == b -> length)?Compare(a, b):0 || a -> length > b -> length)
+    {
+        foo--; // Нужно куда то впихнуть...
+        int i = foo;
+        del = a;    
+        
+        if(i >= 0 && foo < a -> length)
+        {
+            while(i > 0)
+            {
+                if(i == 1)
+                {
+                    delm = del;
+                }
+                i--;
+                del = del -> next;
+            }
+            
+            len = a -> length - foo;
+            
+            
+            
+            if (Compare(del, b))
+            {
+                delm = del;
+            }
+            else
+            {
+                del = delm;
+                len++;
+                foo--;
+            }
+            
+        
+            while((len == b -> length)?Compare(del, b):0 || len > b -> length)
+            {
+                int bar;
+                
+                i++;
+                while(b)
+                {
+                    addIntList(del, -1 * b -> value);
+                    b = b -> next;
+                    del = del -> next;
+                }
+                del = delm;
+                b = bm;
+                
+                bar = a -> length;
+                
+                if (a -> length > 1) 
+                {
+                    EditLength(a, a -> length);
+                }
+                if (bar - a -> length)
+                {
+                    len -= bar - a -> length;
+                }
+            }
+            
+            addIntList10(c, i);
+        }
+    }
+    
+    while(foo > 0)
+    {
+        addIntList10(c, 0);
+        foo--;
+    }
+    
+    while (a)
+    {
+        del = a -> next;
+        free(a);
+        a = del;
+    }
+    
+    while (bm)
+    {
+        del = bm -> next;
+        free(bm);
+        bm = del;
+    }
+    
+    
+    if(c -> length > 1)
+    {
+        EditLength(c, c -> length);
+    }
+    
+    return c;
 }
 
 IntList* Read(char ch, int sign)
@@ -277,7 +390,7 @@ void addIntList10(IntList* list, int value)
             newInt -> sign = list -> sign;
             list -> next = newInt;
             newInt -> value = 0;
-            list -> length++;
+            //list -> length++;
             newInt -> length = list -> length;
         }
         
@@ -380,6 +493,11 @@ void EditLength(IntList* prev, int leng)
         prev -> next = NULL;
         free(this);
     }
+    else
+    {
+        prev -> length = this -> length;
+    }
+    
 }
 
 int Compare(IntList* a, IntList* b)
@@ -390,9 +508,13 @@ int Compare(IntList* a, IntList* b)
     {
         bool = Compare(a -> next, b -> next);
     }
+    if (a -> value == b -> value)
+    {
+        return bool;
+    }
     if(bool == -1)
     {
-        return a -> value < b -> value;
+        return a -> value > b -> value;
     }
 
     return bool;
