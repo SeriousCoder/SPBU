@@ -37,7 +37,7 @@ IntList* Div(IntList* a, IntList* b);
 
 IntList* Read(char ch, int sign);
 
-void ShowInt(IntList* value, int sign);
+void ShowInt(IntList* value, int sign, int free);
 
 void EditSign(IntList* value);
 

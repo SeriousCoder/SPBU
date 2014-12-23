@@ -35,7 +35,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Int-Dec.o \
 	${OBJECTDIR}/LongArif.o \
+	${OBJECTDIR}/Mult-Div.o \
 	${OBJECTDIR}/main.o
 
 
@@ -63,10 +65,20 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/stackcalc.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/stackcalc ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/Int-Dec.o: Int-Dec.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -IList.h -include List.h -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Int-Dec.o Int-Dec.c
+
 ${OBJECTDIR}/LongArif.o: LongArif.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -IList.h -include List.h -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/LongArif.o LongArif.c
+
+${OBJECTDIR}/Mult-Div.o: Mult-Div.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -IList.h -include List.h -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Mult-Div.o Mult-Div.c
 
 ${OBJECTDIR}/main.o: main.c 
 	${MKDIR} -p ${OBJECTDIR}
