@@ -1,3 +1,9 @@
+/*
+    Author: Tarasenko Nikita
+    Problem: "StackCalc", Int-Dec.c
+ 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "List.h"

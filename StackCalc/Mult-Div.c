@@ -1,3 +1,9 @@
+/*
+    Author: Tarasenko Nikita
+    Problem: "StackCalc", Mult-Div.c
+ 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "List.h"
@@ -12,7 +18,13 @@ IntList* Mult(IntList* a, IntList* b)
             sign++;
     }
     
-    result = (IntList*)malloc(sizeof(IntList)); //условие
+    result = (IntList*)malloc(sizeof(IntList)); 
+    
+    if(!result)
+    {
+        fprintf(stdout, "Not enough memory!\n");
+        exit (NOT_ENOUGH_MEMORY);
+    }
     
     result -> next = NULL;
     result -> sign = sign;

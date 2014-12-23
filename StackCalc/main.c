@@ -20,21 +20,21 @@ int main(int argc, char **argv)
     StackList* stack = NULL;
     char ch;
     
-    //if(argc == 3)
-    //{
-        input = freopen("test1.txt", "r", stdin);
-        output = freopen("test_out.txt", "w", stdout);
+    if(argc == 3)
+    {
+        input = freopen(argv[1], "r", stdin);
+        output = freopen(argv[2], "w", stdout);
         if(!input || !output)
         {
             fprintf(stderr, "File IO error\n");
             return -1;
         }
-   // }
-   // else
-    //{
-   //     fprintf(stderr, "Not enough arguments\n");
-    //    return -1;
-    //}
+    }
+    else
+    {
+        fprintf(stderr, "Don't enter input and output files\n");
+        return -1;
+    }
     
     ch = getchar();
     
@@ -42,24 +42,22 @@ int main(int argc, char **argv)
     {
         if (ch == '*' || ch == '/' || ch == '+')
         {
+            if(!stack)
+            {
+                fprintf(stdout, "Not enough arguments\n");
+                return 1;
+            }
+            
             IntList* a = stack -> integer;
-            
-            if(!a)
-            {
-                fprintf(stdout, "Not enough arguments\n");
-                return 1;
-            }
-            
             stack = Remote(stack, 0);
-            IntList* b = stack -> integer;
             
-                        
-            if(!b)
+            if(!stack)
             {
                 fprintf(stdout, "Not enough arguments\n");
                 return 1;
             }
             
+            IntList* b = stack -> integer;
             stack = Remote(stack, 0);
             
             switch(ch)
@@ -91,23 +89,22 @@ int main(int argc, char **argv)
             
             if (ch == '\n' || ch == EOF)
             {
+                if(!stack)
+                {
+                    fprintf(stdout, "Not enough arguments\n");
+                    return 1;
+                }
+                
                 IntList* a = stack -> integer;
-                            
-                if(!a)
-                {
-                    fprintf(stdout, "Not enough arguments\n");
-                    return 1;
-                }
-                
                 stack = Remote(stack, 0);
-                IntList* b = stack -> integer;
                 
-                if(!b)
+                if(!stack)
                 {
                     fprintf(stdout, "Not enough arguments\n");
                     return 1;
                 }
-                
+            
+                IntList* b = stack -> integer;
                 stack = Remote(stack, 0);
             
                 stack = Add(stack, Dec(a, b));
