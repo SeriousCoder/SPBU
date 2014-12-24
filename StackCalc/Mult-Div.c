@@ -199,7 +199,7 @@ IntList* Div(IntList* a, IntList* b)
         foo--;
     }
     
-    if (a -> sign || b -> sign)
+    if (a -> sign && !(a -> length == 1 && !a -> value))
     {
         addIntList(c, 1);
     }
