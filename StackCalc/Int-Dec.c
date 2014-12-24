@@ -109,9 +109,9 @@ IntList* Dec(IntList* a, IntList* b)
 {
     IntList *result, *del;
     
-    if (a -> sign - b -> sign || (a -> sign && b -> sign))
+    if (a -> sign - b -> sign == 1 || (a -> sign && b -> sign))
     {
-        if (a -> sign - b -> sign)
+        if (a -> sign - b -> sign == 1)
         {
             b -> sign = !b -> sign;
             EditSign(b);

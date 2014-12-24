@@ -1,3 +1,9 @@
+/*
+    Author: Tarasenko Nikita
+    Problem: "Sign"
+ 
+ */
+
 #include <stdio.h>
 
 int Sign(int n);
@@ -16,5 +22,5 @@ int main(void)
 
 int Sign(int n)
 {
-    return ((n >> 0x1F) + !( n >> 0x1F) + ~( !n + ~0 ));
+    return ((n >> 31)|(!!n));
 }

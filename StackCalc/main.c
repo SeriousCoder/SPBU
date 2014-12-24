@@ -19,24 +19,34 @@ int main(int argc, char **argv)
 {
     FILE *input = NULL, *output = NULL;
     
+    //char strOut[17] = "test*_student.txt";
+    
+    //strOut[4] = argv[1][4];
+    
     stack = NULL;
     char ch;
     
+    
+    
+/*
     if(argc == 3)
     {
-        input = freopen(argv[1], "r", stdin);
-        output = freopen(argv[2], "w", stdout);
-        if(!input || !output)
+*/
+        input = freopen("test10.txt", "r", stdin);
+        //output = freopen(strOut, "w", stdout);
+        if(!input)
         {
             fprintf(stderr, "File IO error\n");
             return -1;
         }
+/*
     }
     else
     {
         fprintf(stderr, "Don't enter input and output files\n");
         return -1;
     }
+*/
     
     ch = getchar();
     

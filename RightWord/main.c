@@ -1,3 +1,9 @@
+/*
+    Author: Tarasenko Nikita
+    Problem: "RightWord"
+ 
+ */
+
 #include <stdio.h>
 
 int RightWord(int x ,int n);
@@ -16,5 +22,5 @@ int main(void)
 
 int RightWord(int x ,int n)
 {
-	return !((x >> (n - 1)) + (!!(x >> (n -1))));
+	return !((x >> (n - 1)) + (!!(x >> (n - 1))));
 }

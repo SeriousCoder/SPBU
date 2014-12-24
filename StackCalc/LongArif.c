@@ -134,7 +134,7 @@ void addIntList(IntList* list, int value)
 
 void ShowInt(IntList* value, int sign, int freeInt)
 {
-    if (sign)
+    if (sign && !(value -> length == 1 && value -> value == 0))
     {
         printf("-");
         sign--;
@@ -147,9 +147,14 @@ void ShowInt(IntList* value, int sign, int freeInt)
     
     printf("%d", value -> value);
     
-    if(free)
+    if(freeInt)
     {
         free(value);
+    }
+    
+    if(value -> length == 1580)
+    {
+        printf("");
     }
 }
 

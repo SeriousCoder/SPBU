@@ -46,7 +46,7 @@ IntList* Mult(IntList* a, IntList* b)
             result -> length = c -> length;
             b = b -> next;
             
-            if (!c -> next && b)
+            if (!c -> next)
             {
                 IntList *newRank = (IntList*)malloc(sizeof(IntList));
                 
@@ -80,6 +80,8 @@ IntList* Mult(IntList* a, IntList* b)
         del = a -> next;
         free(a);
         a = del;
+        
+        
     }
     
     
@@ -89,6 +91,8 @@ IntList* Mult(IntList* a, IntList* b)
         free(bm);
         bm = del;
     }
+    
+    EditLength(result, result -> length);
     
     return result;
 }
