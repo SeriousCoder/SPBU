@@ -9,6 +9,7 @@
 #include "List.h"
 
 
+
 IntList* Inc(IntList* a, IntList* b)
 {
     IntList *result, *del;
@@ -34,6 +35,9 @@ IntList* Inc(IntList* a, IntList* b)
         if(!c)
         {
             fprintf(stdout, "Not enough memory!\n");
+            stack = Add(a);
+            stack = Add(b);
+            memClear();
             exit (NOT_ENOUGH_MEMORY);
         }
         
@@ -78,6 +82,10 @@ IntList* Inc(IntList* a, IntList* b)
                 if(!newRank)
                 {
                    fprintf(stdout, "Not enough memory!\n");
+                   stack = Add(a);
+                   stack = Add(b);
+                   stack = Add(c);
+                   memClear();
                    exit (NOT_ENOUGH_MEMORY);
                 }
                 

@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include "List.h"
 
+
 int CheckChar(char ch)
 {
     return (ch > 47) && (ch < 58);
@@ -20,6 +21,7 @@ IntList* Read(char ch, int sign)
     if(!newInt)
     {
         fprintf(stdout, "Not enough memory!\n");
+        memClear();
         exit (NOT_ENOUGH_MEMORY);
     }
     
@@ -35,6 +37,8 @@ IntList* Read(char ch, int sign)
         if(!CheckChar(ch))
         {
             fprintf(stdout, "Did not meet number");
+            stack = Add(newInt);
+            memClear();
             exit (1);
         }
         
@@ -63,6 +67,7 @@ void addIntList10(IntList* list, int value)
             if(!newInt)
             {
                 fprintf(stdout, "Not enough memory!\n");
+                memClear();
                 exit (NOT_ENOUGH_MEMORY);
             }
             
@@ -94,6 +99,7 @@ void addIntList(IntList* list, int value)
             if(!newInt)
             {
                 fprintf(stdout, "Not enough memory!\n");
+                memClear();
                 exit (NOT_ENOUGH_MEMORY);
             }
             

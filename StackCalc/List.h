@@ -1,6 +1,6 @@
 /*
     Author: Tarasenko Nikita
-    Problem: "StackCalc", List.h
+    Problem: "StackCalc", Stack.h
  
  */
 
@@ -21,11 +21,20 @@ typedef struct
     void *next;
 }IntList;
 
+    
 typedef struct
 {
     IntList* integer;
     void *next;
 }StackList;
+
+
+StackList* stack;
+
+StackList* Add(IntList* value);
+
+void memClear();
+
 
 IntList* Inc(IntList* a, IntList* b);
 

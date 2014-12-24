@@ -9,15 +9,17 @@
 #include "List.h"
 
 
-StackList* Add(StackList* top, IntList* value);
 
-StackList* Remote(StackList* top, int show);
+
+StackList* Remote(int show);
+
+void freeInt(IntList *value);
 
 int main(int argc, char **argv) 
 {
     FILE *input = NULL, *output = NULL;
     
-    StackList* stack = NULL;
+    stack = NULL;
     char ch;
     
     if(argc == 3)
@@ -45,36 +47,40 @@ int main(int argc, char **argv)
             if(!stack)
             {
                 fprintf(stdout, "Not enough arguments\n");
+                memClear();
                 return 1;
             }
             
             IntList* a = stack -> integer;
-            stack = Remote(stack, 0);
+            stack = Remote(0);
             
             if(!stack)
             {
                 fprintf(stdout, "Not enough arguments\n");
+                stack = Add(a);
+                memClear();
                 return 1;
             }
             
             IntList* b = stack -> integer;
-            stack = Remote(stack, 0);
+            stack = Remote(0);
             
             switch(ch)
             {
                 case '*':
-                    stack = Add(stack, Mult(a, b));
+                    stack = Add(Mult(a, b));
                     break;
                 case '/':
                     if(b -> length == 1 && !b->value)
                     {
                         fprintf(stdout, "Division by zero\n");
+                        memClear();
                         return 1;
                     }
-                    stack = Add(stack, Div(a, b));
+                    stack = Add(Div(a, b));
                     break;
                 case '+':
-                    stack = Add(stack, Inc(a, b));
+                    stack = Add(Inc(a, b));
                     break;
             }
             
@@ -92,26 +98,29 @@ int main(int argc, char **argv)
                 if(!stack)
                 {
                     fprintf(stdout, "Not enough arguments\n");
+                    memClear();
                     return 1;
                 }
                 
                 IntList* a = stack -> integer;
-                stack = Remote(stack, 0);
+                stack = Remote(0);
                 
                 if(!stack)
                 {
                     fprintf(stdout, "Not enough arguments\n");
+                    stack = Add(a);
+                    memClear();
                     return 1;
                 }
             
                 IntList* b = stack -> integer;
-                stack = Remote(stack, 0);
+                stack = Remote(0);
             
-                stack = Add(stack, Dec(a, b));
+                stack = Add(Dec(a, b));
             }
             else if (ch >= 48 && ch < 58)
             {
-                stack = Add(stack, Read(ch, 1));
+                stack = Add(Read(ch, 1));
             }
             
             if (!stack)
@@ -121,7 +130,7 @@ int main(int argc, char **argv)
         }
         else if (ch >= 48 && ch < 58)
         {
-            stack = Add(stack, Read(ch, 0));
+            stack = Add(Read(ch, 0));
             
             if (!stack)
             {
@@ -133,6 +142,7 @@ int main(int argc, char **argv)
             if(!stack)
             {
                 fprintf(stdout, "Not enough arguments\n");
+                memClear();
                 return 1;
             }
             
@@ -142,6 +152,7 @@ int main(int argc, char **argv)
         else if(ch != 13 && ch != '\n')
         {
             fprintf(stdout, "Unknown command\n");
+            memClear();
             return 1;
         }
 
@@ -155,7 +166,7 @@ int main(int argc, char **argv)
         printf("[");
         while(stack)
         {
-            stack = Remote(stack, 1);
+            stack = Remote(1);
         }
         printf("]");
     }
@@ -163,40 +174,60 @@ int main(int argc, char **argv)
     return 0;
 }
 
-StackList* Add(StackList* top, IntList* value)
+StackList* Add(IntList* value)
 {
     StackList *new  = (StackList*)malloc(sizeof(StackList));
     
     if(!new || !value)
     {
         printf("Not enough memory!\n");
+        memClear();
         exit (NOT_ENOUGH_MEMORY);
     }
     
-    new -> next = top;
+    new -> next = stack;
     new -> integer = value;
     
     return new;
 }
 
-StackList* Remote(StackList* top, int show)
+StackList* Remote(int show)
 {
-    StackList *stack = top -> next;
+    StackList *next = stack -> next;
     
-    IntList* next = top -> integer;
+    IntList* Int = stack -> integer;
     
     if(show)
     {
-        ShowInt(next, next -> sign, 1);
-        if(stack)
+        ShowInt(Int, Int -> sign, 1);
+        if(next)
         {
             printf(", ");
         }
         //next = top -> integer -> next;
         //free(top -> integer);
         
-        free(top);
+        free(stack);
     }
     
-    return stack;
+    return next;
+}
+
+void memClear()
+{
+    while(stack)
+    {
+        freeInt(stack -> integer);
+        stack = Remote(0);
+    }
+}
+
+void freeInt(IntList *value)
+{
+    if(value -> next)
+    {
+        freeInt(value -> next);
+    }
+    
+    free(value);
 }

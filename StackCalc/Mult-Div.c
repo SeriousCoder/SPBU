@@ -23,6 +23,9 @@ IntList* Mult(IntList* a, IntList* b)
     if(!result)
     {
         fprintf(stdout, "Not enough memory!\n");
+        stack = Add(a);
+        stack = Add(b);
+        memClear();
         exit (NOT_ENOUGH_MEMORY);
     }
     
@@ -50,6 +53,10 @@ IntList* Mult(IntList* a, IntList* b)
                 if(!newRank)
                 {
                    fprintf(stdout, "Not enough memory!\n");
+                   stack = Add(a);
+                   stack = Add(bm);
+                   stack = Add(result);
+                   memClear();
                    exit (NOT_ENOUGH_MEMORY);
                 }
                 
@@ -105,6 +112,9 @@ IntList* Div(IntList* a, IntList* b)
     if(!c)
     {
         fprintf(stdout, "Not enough memory!\n");
+        stack = Add(a);
+        stack = Add(b);
+        memClear();
         exit (NOT_ENOUGH_MEMORY);
     }
     
@@ -189,7 +199,7 @@ IntList* Div(IntList* a, IntList* b)
         foo--;
     }
     
-    if (a -> sign)
+    if (a -> sign || b -> sign)
     {
         addIntList(c, 1);
     }
