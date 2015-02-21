@@ -1,0 +1,9 @@
+F:\GitHub\BinTree\BinTree\bin\Debug\BinTree.exe.config
+F:\GitHub\BinTree\BinTree\bin\Debug\BinTree.XML
+F:\GitHub\BinTree\BinTree\bin\Debug\BinTree.exe
+F:\GitHub\BinTree\BinTree\bin\Debug\BinTree.pdb
+F:\GitHub\BinTree\BinTree\bin\Debug\FSharp.Core.dll
+F:\GitHub\BinTree\BinTree\bin\Debug\FSharp.Core.xml
+F:\GitHub\BinTree\BinTree\bin\Debug\ru\FSharp.Core.resources.dll
+F:\GitHub\BinTree\BinTree\obj\Debug\BinTree.exe
+F:\GitHub\BinTree\BinTree\obj\Debug\BinTree.pdb
