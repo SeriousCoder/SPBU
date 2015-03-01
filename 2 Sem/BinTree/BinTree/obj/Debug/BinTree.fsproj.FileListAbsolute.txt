@@ -7,3 +7,12 @@ F:\GitHub\BinTree\BinTree\bin\Debug\FSharp.Core.xml
 F:\GitHub\BinTree\BinTree\bin\Debug\ru\FSharp.Core.resources.dll
 F:\GitHub\BinTree\BinTree\obj\Debug\BinTree.exe
 F:\GitHub\BinTree\BinTree\obj\Debug\BinTree.pdb
+F:\GitHub\SPBU\2 Sem\BinTree\BinTree\bin\Debug\BinTree.exe.config
+F:\GitHub\SPBU\2 Sem\BinTree\BinTree\bin\Debug\BinTree.XML
+F:\GitHub\SPBU\2 Sem\BinTree\BinTree\bin\Debug\BinTree.exe
+F:\GitHub\SPBU\2 Sem\BinTree\BinTree\bin\Debug\BinTree.pdb
+F:\GitHub\SPBU\2 Sem\BinTree\BinTree\bin\Debug\FSharp.Core.dll
+F:\GitHub\SPBU\2 Sem\BinTree\BinTree\bin\Debug\FSharp.Core.xml
+F:\GitHub\SPBU\2 Sem\BinTree\BinTree\bin\Debug\ru\FSharp.Core.resources.dll
+F:\GitHub\SPBU\2 Sem\BinTree\BinTree\obj\Debug\BinTree.exe
+F:\GitHub\SPBU\2 Sem\BinTree\BinTree\obj\Debug\BinTree.pdb
