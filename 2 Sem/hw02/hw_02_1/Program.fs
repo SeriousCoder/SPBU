@@ -14,15 +14,14 @@ let mapList f list = List.foldBack (fun elem acc -> (f elem) :: acc) list []   /
 let printList mas = 
     mas |> List.iter(fun x -> printf "%A " x)
     printfn ""
-    0
 
 [<EntryPoint>]
 let main args =
     let mas = [1; 2; 3; 4; 5; 6]
 
-    printList (reverseList mas) |> ignore
+    printList (reverseList mas)
 
-    printList (filterList (fun elem -> elem < 4) mas) |> ignore
+    printList (filterList (fun elem -> elem < 4) mas)
 
-    printList (mapList (fun x -> x + 1) mas) |> ignore
+    printList (mapList (fun x -> x + 1) mas)
     0

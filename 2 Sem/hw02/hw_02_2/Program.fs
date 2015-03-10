@@ -7,14 +7,12 @@
 //    | elem :: list -> fold f (f acc elem) list
 
 let horner a list =   //Реализация схемы Горнера
-    match list with
-    | [] -> 0
-    | elem :: list -> List.fold (fun acc elem ->  a * acc + elem) elem list
+    List.fold (fun acc elem ->  a * acc + elem) 0 list
 
 [<EntryPoint>]
 let main argv = 
 
-    horner 3 [2; -3; 7; 12] |> printfn "2x^3 - 3x^2 + 7x + 12 = %A"
+    horner 3 [2; -3; 7; 12] |> printfn "For x = 3 : 2x^3 - 3x^2 + 7x + 12 = %A"
 
     0 // return an integer exit code
 

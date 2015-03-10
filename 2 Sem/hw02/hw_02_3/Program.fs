@@ -106,7 +106,7 @@ let main argv =
 
    sumElements tree |> printfn "\n\nSum of elements: %d"
 
-   findMin tree |> printfn "\nMin element: %A/n"
+   findMin tree |> printfn "\nMin element: %A\n"
 
    printfn "Copyed tree:"
    copyTree tree |> print
