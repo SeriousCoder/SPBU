@@ -7,8 +7,8 @@ let chanсeInfect = System.Random()
 let Protection osName =
     match osName with
     | "Windows" -> 0.6
-    | "Linux"   -> 0.2
-    | "OS X"    -> 0.15
+    | "Linux  "   -> 0.2
+    | "OS X   "    -> 0.15
     | "Android" -> 0.3
     | _         -> failwith "Oops, i don't know this OS."
 
@@ -48,8 +48,10 @@ type Network (comps : list<Computer>, edges : list<int * int>) =
         
         member this.Print () =
             printfn "Step %d" time
+            let mutable i = 0
             for comp in comps do
-                printfn "%A %A" (comp.IsOS ()) (comp.IsInfected ())
+                printfn "%d | %A %A" i (comp.IsOS ()) (comp.IsInfected ())
+                i <- i + 1
 
         member this.NextStep () =
             time <- time + 1
@@ -66,7 +68,7 @@ type Network (comps : list<Computer>, edges : list<int * int>) =
 
     end
 
-let Net = new Network(InitComps(["Windows"; "Linux"; "OS X"; "Windows"; "Linux"; "Windows"; "Linux"; "OS X"; "Windows"], 
+let Net = new Network(InitComps(["Windows"; "Linux  "; "OS X   "; "Windows"; "Linux  "; "Windows"; "Linux  "; "OS X   "; "Windows"], 
                                 [false; false; true; false; false; true; true; false; false]), 
                                 [(0, 1); (1, 2); (0, 2); (8, 5); (4, 3); (4, 7); (3, 7); (6, 7)]);
 
@@ -82,7 +84,16 @@ let Net = new Network(InitComps(["Windows"; "Linux"; "OS X"; "Windows"; "Linux";
 *)
 
 let Life =
-    printfn "Первоначальное состояние сети:"
+    printfn "Первоначальное состояние сети:     "    //В этом месте у меня почему-то не получилось все сделать через один printf
+    printfn "(1) ----(2)   (5)       (4)         " 
+    printfn " |      /      |        |  \        " 
+    printfn " |     /       |        |    \      " 
+    printfn " |    /        |        |      \    " 
+    printfn " |   /         |       (7) ----(3)  " 
+    printfn " |  /          |        |           " 
+    printfn " | /           |        |           " 
+    printfn "(0)           (8)      (6)          \n"   
+            
     Net.Print ()
     printfn ""
     while (Net.CheckStatus ()) do
@@ -90,7 +101,6 @@ let Life =
         Net.Print ()
         printfn ""
         async {
-            do! Async.Sleep(1000)
         } |>ignore
 
 [<EntryPoint>]
