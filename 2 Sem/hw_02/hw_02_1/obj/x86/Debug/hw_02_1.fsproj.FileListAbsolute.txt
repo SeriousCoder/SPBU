@@ -1,7 +1,0 @@
-F:\GitHub\SPBU\2 Sem\hw_02\hw_02_1\bin\Debug\hw_02.exe
-F:\GitHub\SPBU\2 Sem\hw_02\hw_02_1\bin\Debug\hw_02.pdb
-F:\GitHub\SPBU\2 Sem\hw_02\hw_02_1\bin\Debug\FSharp.Core.dll
-F:\GitHub\SPBU\2 Sem\hw_02\hw_02_1\bin\Debug\FSharp.Core.xml
-F:\GitHub\SPBU\2 Sem\hw_02\hw_02_1\bin\Debug\ru\FSharp.Core.resources.dll
-F:\GitHub\SPBU\2 Sem\hw_02\hw_02_1\obj\x86\Debug\hw_02.exe
-F:\GitHub\SPBU\2 Sem\hw_02\hw_02_1\obj\x86\Debug\hw_02.pdb
