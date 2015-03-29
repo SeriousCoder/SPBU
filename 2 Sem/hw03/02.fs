@@ -97,12 +97,10 @@ let Life =
     Net.Print ()
     printfn ""
     while (Net.CheckStatus ()) do
-        Net.NextStep ()
-        Net.Print ()
-        printfn ""
-        async {
-            do! Async.Sleep(3000)
-        } |>ignore
+       Net.NextStep ()
+       Net.Print ()
+       printfn ""
+
 
 [<EntryPoint>]
 let main argv = 
