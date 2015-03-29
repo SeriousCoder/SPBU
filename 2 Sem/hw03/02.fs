@@ -1,6 +1,5 @@
-﻿// Learn more about F# at http://fsharp.net
-// See the 'F# Tutorial' project for more help.
-//open System
+﻿// Task 26
+// by Tarasenko Nik, 171 group
 
 let chanсeInfect = System.Random()
 

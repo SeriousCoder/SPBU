@@ -1,4 +1,4 @@
-﻿// Tasks 
+﻿// Tasks 20 - 25
 // by Tarasenko Nik, 171 group
 
 
@@ -101,7 +101,7 @@ let accessIn (graph : IGraph<'T>) node =  //Task 24
     checking i
   List.map graph.GetValue (List.filter access (List.filter (fun x -> x <> node) [0 .. (size - 1)]))
 
-type IPoliGraph<'T, 'A> = //Task 25
+type IPoliGraph<'T, 'A> =  //Task 25
     interface
         inherit IGraph<'T>
 
