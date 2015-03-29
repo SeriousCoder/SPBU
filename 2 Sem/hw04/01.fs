@@ -1,3 +1,4 @@
+﻿// Tasks 31 - ...
 // by Tarasenko Nik, 171 group
 
 open NUnit.Framework
@@ -197,5 +198,4 @@ let main argv =
     printfn "\nCписок вершин, доступных из вершины 1 второго графа:\n%A" (accessOut g1 0)
     printfn "\nCписок вершин, из которых доступна из вершина А второго графа:\n%A" (accessIn g1 0)
     0 // return an integer exit code
-
 
