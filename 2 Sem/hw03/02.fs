@@ -90,7 +90,7 @@ let Life =
         Net.Print ()
         printfn ""
         async {
-            do! Async.Sleep(50000)
+            do! Async.Sleep(1000)
         } |>ignore
 
 [<EntryPoint>]
