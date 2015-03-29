@@ -1,0 +1,25 @@
+﻿<Properties StartupItem="nw_02_2\nw_02_2.fsproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="hw_02\Program.fs">
+    <Files>
+      <File FileName="hw_02\Program.fs" Line="17" Column="17" />
+      <File FileName="nw_02_2\Program.fs" Line="1" Column="1" />
+      <File FileName="nw_02_3\Program.fs" Line="30" Column="30" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="hw_02_1" expanded="True">
+            <Node name="Program.fs" selected="True" />
+          </Node>
+          <Node name="nw_02_2" expanded="True" />
+          <Node name="nw_02_3" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

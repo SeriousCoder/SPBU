@@ -1,0 +1,8 @@
+F:\GitHub\hw_02\nw_02_3\bin\Debug\nw_02_3.exe
+F:\GitHub\hw_02\nw_02_3\bin\Debug\nw_02_3.pdb
+F:\GitHub\hw_02\nw_02_3\bin\Debug\FSharp.Core.dll
+F:\GitHub\hw_02\nw_02_3\bin\Debug\FSharp.Core.xml
+F:\GitHub\hw_02\nw_02_3\bin\Debug\ru\FSharp.Core.resources.dll
+F:\GitHub\hw_02\nw_02_3\obj\x86\Debug\nw_02_3.fsprojResolveAssemblyReference.cache
+F:\GitHub\hw_02\nw_02_3\obj\x86\Debug\nw_02_3.exe
+F:\GitHub\hw_02\nw_02_3\obj\x86\Debug\nw_02_3.pdb
