@@ -1,0 +1,8 @@
+C:\Users\Seriously\Documents\Projects\hw_02\hw_02_2\obj\x86\Debug\nw_02_2.fsprojResolveAssemblyReference.cache
+C:\Users\Seriously\Documents\Projects\hw_02\hw_02_2\bin\Debug\nw_02_2.exe
+C:\Users\Seriously\Documents\Projects\hw_02\hw_02_2\bin\Debug\nw_02_2.pdb
+C:\Users\Seriously\Documents\Projects\hw_02\hw_02_2\bin\Debug\FSharp.Core.dll
+C:\Users\Seriously\Documents\Projects\hw_02\hw_02_2\bin\Debug\FSharp.Core.xml
+C:\Users\Seriously\Documents\Projects\hw_02\hw_02_2\bin\Debug\ru\FSharp.Core.resources.dll
+C:\Users\Seriously\Documents\Projects\hw_02\hw_02_2\obj\x86\Debug\nw_02_2.exe
+C:\Users\Seriously\Documents\Projects\hw_02\hw_02_2\obj\x86\Debug\nw_02_2.pdb
