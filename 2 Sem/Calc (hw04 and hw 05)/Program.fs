@@ -143,11 +143,17 @@ let Test35 (str : string) =
 
 
 [<Test>] 
-let test36_1 () = SolutionWithVar("1+(2/a)^2", [("a", 3)])  |>should equal 1
+let test36_1 () = 
+  SolutionWithVar("1+(2/a)^2", [("a", 3)])  
+  |>should equal 1
 [<Test>]
-let test36_2 () = SolutionWithVar("(4^(5%3)+foo))/(bar*(-2))", [ ("foo", -68); ("bar", -6) ]) |> should equal -4
+let test36_2 () = 
+  SolutionWithVar("(4^(5%3)+foo))/(bar*(-2))", [ ("foo", -68); ("bar", -6) ]) 
+  |> should equal -4
 [<Test>]
-let test36_3 () = SolutionWithVar("a+b*(c-d)^e^a/f", [("a", 3); ("b", 7); ("c", 1); ("d", 5); ("e", 2); ("f", 1024)])  |>should equal 451
+let test36_3 () = 
+  SolutionWithVar("a+b*(c-d)^e^a/f", [("a", 3); ("b", 7); ("c", 1); ("d", 5); ("e", 2); ("f", 1024)])  
+  |>should equal 451
 
 [<TestCase ("1+(2/3)^2", Result = "1\n2\n3\n/\n2\n^\n+\n")>]
 [<TestCase ("(4^(5%3)+(-68))/((-6)*(-2))", Result = "4\n5\n3\n%\n^\n-68\n+\n-6\n-2\n*\n/\n")>]
