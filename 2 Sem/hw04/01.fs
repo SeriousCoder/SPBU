@@ -1,4 +1,4 @@
-﻿// Tasks 20 - 25
+﻿// Tasks (20 - 25) + 31 
 // by Tarasenko Nik, 171 group
 module HwSPBU
 
@@ -141,6 +141,39 @@ type ``Тест графа с матрицей смежности`` () =
     ``В вершину 8 можно попасть из 7, 8`` () =
       (sprintf "%A" (accessIn g 7))
         |> should equal "[7]"
+
+[<TestFixture>]
+type ``Тест графа со списком смежности`` () =  
+  let g1 =
+    new ListGraph<int>([|1; 2; 3; 4; 5; 6; 7; 8; 9|],
+      [(0, 1); (1, 2); (1, 3); (4, 3); (4, 5); (5, 3); (2, 5); (6, 7); (7, 8)])
+        :> IGraph<int>
+  let g2 = new ListGraph<int>([| 0 |], []) :> IGraph<int>
+  let g3 = new ListGraph<int>([| 0; 1 |], [(0, 1)]) :> IGraph<int>
+  [<TestCase (0, Result = "[1; 2; 3; 4; 6]")>]
+  [<TestCase (3, Result = "[4]")>]
+  [<TestCase (7, Result = "[8; 9]")>]
+  member this.``1. Доступные вершины из данной`` index =
+      (sprintf "%A" (accessOut g1 index |> List.sort))
+  [<TestCase (3, Result = "[1; 2; 3; 4; 5; 6]")>]
+  [<TestCase (6, Result = "[7]")>]
+  [<TestCase (7, Result = "[7; 8]")>]
+  member this.``1. Из каких вершин доступна данная`` index =
+      (sprintf "%A" (accessIn g1 index))
+  [<TestCase (0, Result = "[0]")>]
+  member this.``2. Доступные вершины из данной`` index =
+      (sprintf "%A" (accessOut g2 index))
+  [<TestCase (0, Result = "[0]")>]
+  member this.``2. Из каких вершин доступна данная`` index =
+      (sprintf "%A" (accessIn g2 index))
+  [<TestCase (0, Result = "[0; 1]")>]
+  [<TestCase (1, Result = "[1]")>]
+  member this.``3. Доступные вершины из данной`` index =
+      (sprintf "%A" (accessOut g3 index))
+  [<TestCase (0, Result = "[0]")>]
+  [<TestCase (1, Result = "[0; 1]")>]
+  member this.``3. Из каких вершин доступна данная`` index =
+      (sprintf "%A" (accessIn g3 index))
 
 [<EntryPoint>]
 let main argv = 
