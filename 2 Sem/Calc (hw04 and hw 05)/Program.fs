@@ -62,26 +62,6 @@ let ToPolish (tern : string) : list<string> =  //Task 35, 37
 
 let rec Solution (tern : list<string>) : int =  //Tasks 35, 37
     let mutable stack = []
-    
-    let getInt ch =
-        match ch with
-        | '0' -> 0.0
-        | '1' -> 1.0
-        | '2' -> 2.0
-        | '3' -> 3.0
-        | '4' -> 4.0
-        | '5' -> 5.0
-        | '6' -> 6.0
-        | '7' -> 7.0
-        | '8' -> 8.0
-        | '9' -> 9.0
-        | _ -> -1.0 //Expression
-
-    let toInt (str : string) : float =
-        let mutable value = 0.0
-        for ch in str do
-            value <- value * 10.0 + (getInt ch)
-        value
 
     let action (a : string, b : string, sign : string) : int =
         match sign with
