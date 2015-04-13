@@ -43,10 +43,10 @@ let ToPolish (tern : string) : list<string> =  //Task 35, 37
                     foo <- ""
                 if stackOperands.Length = 0 then
                     stackOperands <- ch :: stackOperands
-                elif (getPriority ch) >= (getPriority stackOperands.Head) then
+                elif (getPriority ch) > (getPriority stackOperands.Head) || ((getPriority ch) >= (getPriority stackOperands.Head) && (ch = '^'))then
                     stackOperands <- ch :: stackOperands
                 else
-                    while (stackOperands.Length > 0 && ((getPriority ch) < (getPriority stackOperands.Head))) do
+                    while (stackOperands.Length > 0 && ((getPriority ch) <= (getPriority stackOperands.Head))) do
                         stackOut <- stackOperands.Head.ToString () :: stackOut
                         stackOperands <- stackOperands.Tail
                     stackOperands <- ch :: stackOperands
@@ -136,12 +136,16 @@ let test36_3 () =
   |>should equal 451
 
 [<TestCase ("1+(2/3)^2", Result = "1\n2\n3\n/\n2\n^\n+\n")>]
+[<TestCase ("2^3^2", Result = "2\n3\n2\n^\n^\n")>]
+[<TestCase ("1-2-3", Result = "1\n2\n-\n3\n-\n")>]
 [<TestCase ("(4^(5%3)+(-68))/((-6)*(-2))", Result = "4\n5\n3\n%\n^\n-68\n+\n-6\n-2\n*\n/\n")>]
-[<TestCase ("3+7*(1-5)^2^3/1024", Result = "3\n7\n1\n5\n-\n2\n3\n^\n^\n1024\n/\n*\n+\n")>]
+[<TestCase ("3+7*(1-5)^2^3/1024", Result = "3\n7\n1\n5\n-\n2\n3\n^\n^\n*\n1024\n/\n+\n")>]
 let Test37 (str : string) =
     printPolish (ToPolish str)
 
 
+[<TestCase ("2\n3\n2\n^\n^\n", Result = 512)>]
+[<TestCase ("1\n2\n-\n3\n-\n", Result = -4)>]
 [<TestCase ("1\n2\n3\n/\n2\n^\n+\n", Result = 1)>]
 [<TestCase ("4\n5\n3\n%\n^\n-68\n+\n-6\n-2\n*\n/\n", Result = -4)>]
 [<TestCase ("3\n7\n1\n5\n-\n2\n3\n^\n^\n1024\n/\n*\n+\n", Result = 451)>]
