@@ -12,19 +12,19 @@ Target "Clean" (fun _ ->
 )
 
 Target "BuildApp" (fun _ ->
-  !! "src/calc/**/*.fsproj"
+  !! "src/calc/*.fsproj"
     |> MSBuildRelease buildDir "Build"
     |> Log "AppBuild-Output: "
 )
 
 Target "BuildGui" (fun _ ->
-  !! "src/gui/**/*.fsproj"
+  !! "src/gui/*.csproj"
     |> MSBuildRelease buildDir "Build"
     |> Log "AppBuild-Output: "
 )
 
 Target "BuildTest" (fun _ ->
-  !! "src/test/**/*.fsproj"
+  !! "src/test/*.fsproj"
     |> MSBuildDebug testDir "Build"
     |> Log "BuildTest-Output: "
 )

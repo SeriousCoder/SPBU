@@ -2,11 +2,11 @@
 
 open System
 
-type CalcClass () = 
+type public CalcClass () = 
     
     let mutable _tern = []
 
-    member this.ParsToPolish tern =
+    member public this.ParsToPolish tern =
         let mutable stackOut : list<string> = []
         let mutable stackOperands : list<string> = []
         let mutable foo : string = ""
@@ -109,7 +109,7 @@ type CalcClass () =
         fact a
         
  
-    member this.Calc () =
+    member public this.Calc () =
         let rec Solution (tern : list<string>) = 
             let mutable stack = []
 
@@ -155,7 +155,7 @@ type CalcClass () =
                 | _ -> stack <- elem :: stack
 
             _tern <- []
-            Double.Parse (stack.Head)  
+            Math.Round((Double.Parse (stack.Head)), 7, MidpointRounding.AwayFromZero)
 
 
         Solution _tern;
