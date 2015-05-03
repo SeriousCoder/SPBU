@@ -1,0 +1,7 @@
+f:\GitHub\SPBU\2 Sem\hw09\build\Thread01.exe.config
+f:\GitHub\SPBU\2 Sem\hw09\build\Thread01.exe
+f:\GitHub\SPBU\2 Sem\hw09\build\Thread01.pdb
+f:\GitHub\SPBU\2 Sem\hw09\build\Thread01.XML
+f:\GitHub\SPBU\2 Sem\hw09\src\app\obj\Release\Thread01.fsprojResolveAssemblyReference.cache
+f:\GitHub\SPBU\2 Sem\hw09\src\app\obj\Release\Thread01.exe
+f:\GitHub\SPBU\2 Sem\hw09\src\app\obj\Release\Thread01.pdb
