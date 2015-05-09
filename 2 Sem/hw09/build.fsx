@@ -11,8 +11,14 @@ Target "Clean" (fun _ ->
   CleanDirs [buildDir; testDir]
 )
 
-Target "BuildApp" (fun _ ->
-  !! "src/app/**/*.fsproj"
+Target "BuildApp1" (fun _ ->
+  !! "src/app1/**/*.fsproj"
+    |> MSBuildRelease buildDir "Build"
+    |> Log "AppBuild-Output: "
+)
+
+Target "BuildApp2" (fun _ ->
+  !! "src/app2/**/*.fsproj"
     |> MSBuildRelease buildDir "Build"
     |> Log "AppBuild-Output: "
 )
@@ -36,7 +42,8 @@ Target "Default" (fun _ ->
 )
 
 "Clean"
-  ==> "BuildApp"
+  ==> "BuildApp1"
+  ==> "BuildApp2"
   ==> "BuildTest"
   ==> "Test"
   ==> "Default"
