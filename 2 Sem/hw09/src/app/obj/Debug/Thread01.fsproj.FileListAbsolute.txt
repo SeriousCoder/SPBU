@@ -1,7 +1,0 @@
-f:\GitHub\SPBU\2 Sem\hw09\test\Thread01.exe.config
-f:\GitHub\SPBU\2 Sem\hw09\test\Thread01.exe
-f:\GitHub\SPBU\2 Sem\hw09\test\Thread01.pdb
-f:\GitHub\SPBU\2 Sem\hw09\test\Thread01.XML
-f:\GitHub\SPBU\2 Sem\hw09\src\app\obj\Debug\Thread01.fsprojResolveAssemblyReference.cache
-f:\GitHub\SPBU\2 Sem\hw09\src\app\obj\Debug\Thread01.exe
-f:\GitHub\SPBU\2 Sem\hw09\src\app\obj\Debug\Thread01.pdb

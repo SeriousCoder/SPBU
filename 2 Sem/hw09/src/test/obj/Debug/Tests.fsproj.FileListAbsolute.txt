@@ -1,1 +1,0 @@
-f:\GitHub\SPBU\2 Sem\hw09\src\test\obj\Debug\Tests.fsprojResolveAssemblyReference.cache

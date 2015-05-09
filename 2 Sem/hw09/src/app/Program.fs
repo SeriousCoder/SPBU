@@ -4,7 +4,7 @@ open System
 open System.Threading
 
 let findMaxInRange (arr : int []) b e : int =
-    let mutable max = -1
+    let mutable max = Int32.MinValue
     for i in b .. e do
         if max < arr.[i] then max <- arr.[i]
     max
@@ -15,9 +15,7 @@ let findMax threadNum (arr : int []) : int =
     let threadArr = Array.init threadNum (fun i ->
         new Thread(ThreadStart (fun _ ->
             let threadMax = findMaxInRange arr (i * step) ((i + 1) * step - 1)
-            Monitor.Enter(max)
-            if max.Value < threadMax then max := threadMax
-            Monitor.Exit(max)
+            lock max (fun _ -> if max.Value < threadMax then max := threadMax)
         ))
     )
     for th in threadArr do
@@ -38,9 +36,7 @@ let calcIntegral (threadNum : int) f (b : float) (e : float) step =
     let threadArr = Array.init threadNum (fun i ->
         new Thread(ThreadStart (fun _ ->
             let threadRes = integralInRange (f) (b + double i * interval) (b + (double i + 1.0) * interval) step
-            Monitor.Enter(res)
-            res := res.Value + threadRes
-            Monitor.Exit(res)
+            lock res (fun _ -> res := res.Value + threadRes)
         ))
     )
     for th in threadArr do
