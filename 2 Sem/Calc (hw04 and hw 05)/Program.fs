@@ -69,7 +69,7 @@ let rec Solution (tern : list<string>) : int =  //Tasks 35, 37
         | "-" -> int (float (b) - float (a))
         | "*" -> int (float (a) * float (b))
         | "/" -> int (float (b) / float (a))
-        | "%" -> int (float (b) % float (a))
+        | "%" -> int (float (b) % float (a)) 
         | "^" -> int (float (b) ** float (a))
         | _ -> 0 
 

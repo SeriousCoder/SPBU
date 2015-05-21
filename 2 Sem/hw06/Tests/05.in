@@ -1,0 +1,13 @@
+;
+read
+a
+while
+a
+;
+write
+a
+:=
+a
+-
+a
+1
