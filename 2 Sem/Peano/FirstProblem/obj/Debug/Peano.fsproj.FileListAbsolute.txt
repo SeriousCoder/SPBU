@@ -1,9 +1,0 @@
-F:\GitHub\SPBU\2 Sem\Peano\FirstProblem\bin\Debug\FirstProblem.exe.config
-F:\GitHub\SPBU\2 Sem\Peano\FirstProblem\bin\Debug\FirstProblem.XML
-F:\GitHub\SPBU\2 Sem\Peano\FirstProblem\bin\Debug\FirstProblem.exe
-F:\GitHub\SPBU\2 Sem\Peano\FirstProblem\bin\Debug\FirstProblem.pdb
-F:\GitHub\SPBU\2 Sem\Peano\FirstProblem\bin\Debug\FSharp.Core.dll
-F:\GitHub\SPBU\2 Sem\Peano\FirstProblem\bin\Debug\FSharp.Core.xml
-F:\GitHub\SPBU\2 Sem\Peano\FirstProblem\bin\Debug\ru\FSharp.Core.resources.dll
-F:\GitHub\SPBU\2 Sem\Peano\FirstProblem\obj\Debug\FirstProblem.exe
-F:\GitHub\SPBU\2 Sem\Peano\FirstProblem\obj\Debug\FirstProblem.pdb
